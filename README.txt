@@ -44,8 +44,3 @@ Link2: https://github.com/HenrikBengtsson/brother-ptouch-label-printer-on-linux
 Link3: https://imagemagick.org/script/download.php
 
 
-
-    FAQ-Bereich mit allen bisher gestellten Fragen.
-    Copyrights und Lizenzinformationen.
-
-
