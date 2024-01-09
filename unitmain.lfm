@@ -1,0 +1,924 @@
+object Form1: TForm1
+  Left = 450
+  Height = 410
+  Hint = 'Wählen: Double-Click'
+  Top = 250
+  Width = 2036
+  AutoSize = True
+  Caption = 'P-touch GUI'
+  ChildSizing.HorizontalSpacing = 2
+  ChildSizing.ControlsPerLine = 1
+  ClientHeight = 410
+  ClientWidth = 2036
+  Font.Height = 12
+  KeyPreview = True
+  Menu = MainMenu1
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  Position = poWorkAreaCenter
+  LCLVersion = '3.0.0.1'
+  object Panel1: TPanel
+    Left = 0
+    Height = 132
+    Top = 0
+    Width = 2036
+    Align = alTop
+    BevelInner = bvLowered
+    Caption = 'Panel1'
+    ClientHeight = 132
+    ClientWidth = 2036
+    TabOrder = 0
+    OnClick = Panel1Click
+    object GroupBox1: TGroupBox
+      Left = 232
+      Height = 120
+      Top = 8
+      Width = 152
+      Caption = 'Tape'
+      ClientHeight = 102
+      ClientWidth = 150
+      TabOrder = 0
+      object ToggleBox1: TToggleBox
+        Left = 16
+        Height = 25
+        Top = 4
+        Width = 104
+        Caption = 'Auto'
+        Checked = True
+        OnChange = ToggleBox1Change
+        State = cbChecked
+        TabOrder = 0
+      end
+      object ComboBox1: TComboBox
+        Left = 16
+        Height = 29
+        Top = 37
+        Width = 104
+        Enabled = False
+        ItemHeight = 0
+        Items.Strings = (
+          '3,5 mm'
+          '6 mm'
+          '9 mm'
+          '12 mm'
+          '18 mm'
+          '24 mm'
+          '36 mm'
+        )
+        OnChange = UpdateTapeTypeExecute
+        ReadOnly = True
+        TabOrder = 1
+        Text = 'Error'
+      end
+    end
+    object GroupBox2: TGroupBox
+      Left = 400
+      Height = 120
+      Top = 8
+      Width = 152
+      Caption = 'Length'
+      ClientHeight = 102
+      ClientWidth = 150
+      TabOrder = 1
+      object ToggleBox2: TToggleBox
+        Left = 8
+        Height = 25
+        Top = 4
+        Width = 101
+        Caption = 'Auto'
+        Checked = True
+        OnChange = ToggleBox2Change
+        State = cbChecked
+        TabOrder = 0
+      end
+      object Edit2: TEdit
+        Left = 8
+        Height = 29
+        Top = 37
+        Width = 84
+        Enabled = False
+        NumbersOnly = True
+        TabOrder = 1
+      end
+      object UpDown1: TUpDown
+        Left = 92
+        Height = 29
+        Top = 37
+        Width = 17
+        Associate = Edit2
+        Enabled = False
+        Max = 1000
+        Min = 10
+        OnClick = UpDown1Click
+        Position = 10
+        TabOrder = 2
+      end
+      object StaticText2: TStaticText
+        Left = 8
+        Height = 24
+        Top = 75
+        Width = 104
+        Caption = 'Label too long!'
+        TabOrder = 3
+        Visible = False
+      end
+      object StaticText3: TStaticText
+        Left = 112
+        Height = 19
+        Top = 47
+        Width = 32
+        AutoSize = True
+        Caption = '[mm]'
+        TabOrder = 4
+      end
+    end
+    object GroupBox3: TGroupBox
+      Left = 1600
+      Height = 127
+      Top = 8
+      Width = 616
+      Caption = 'Debug Info'
+      TabOrder = 2
+      Visible = False
+    end
+    object GroupBox4: TGroupBox
+      Left = 568
+      Height = 120
+      Top = 8
+      Width = 240
+      Caption = 'Font'
+      ClientHeight = 102
+      ClientWidth = 238
+      TabOrder = 3
+      object LabeledEdit2: TLabeledEdit
+        Left = 8
+        Height = 29
+        Top = 24
+        Width = 120
+        EditLabel.Height = 17
+        EditLabel.Width = 120
+        EditLabel.Caption = 'Name'
+        LabelSpacing = 0
+        TabOrder = 0
+        Text = 'LabeledEdit2'
+        OnChange = LabeledEdit2Change
+        OnDblClick = SelectFontExecute
+      end
+      object UpDown2: TUpDown
+        Left = 184
+        Height = 29
+        Top = 24
+        Width = 32
+        Associate = Edit1
+        Increment = 5
+        Min = 10
+        OnClick = UpDown2Click
+        Position = 100
+        TabOrder = 1
+      end
+      object ToggleBox3: TToggleBox
+        Left = 8
+        Height = 25
+        Top = 56
+        Width = 24
+        Caption = 'B'
+        Font.Height = -13
+        Font.Name = 'Sans'
+        Font.Style = [fsBold]
+        OnClick = ToggleBox3Click
+        ParentFont = False
+        TabOrder = 2
+      end
+      object ToggleBox4: TToggleBox
+        Left = 40
+        Height = 25
+        Top = 56
+        Width = 24
+        Caption = 'I'
+        Font.Height = -13
+        Font.Name = 'Sans'
+        Font.Style = [fsItalic]
+        OnClick = ToggleBox4Click
+        ParentFont = False
+        TabOrder = 3
+      end
+      object ToggleBox5: TToggleBox
+        Left = 72
+        Height = 25
+        Top = 56
+        Width = 24
+        Caption = 'U'
+        Enabled = False
+        Font.Height = -13
+        Font.Name = 'Sans'
+        OnClick = ToggleBox5Click
+        ParentFont = False
+        TabOrder = 4
+      end
+      object Edit1: TEdit
+        Left = 144
+        Height = 29
+        Top = 24
+        Width = 40
+        TabOrder = 5
+        Text = 'Edit1'
+      end
+      object Label1: TLabel
+        Left = 148
+        Height = 17
+        Top = 7
+        Width = 18
+        Caption = '[%]'
+      end
+    end
+    object RadioGroup1: TRadioGroup
+      Left = 9
+      Height = 120
+      Top = 8
+      Width = 209
+      AutoFill = True
+      Caption = 'Mode'
+      ChildSizing.LeftRightSpacing = 6
+      ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+      ChildSizing.EnlargeVertical = crsHomogenousChildResize
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 2
+      ClientHeight = 102
+      ClientWidth = 207
+      Columns = 2
+      ItemIndex = 1
+      Items.Strings = (
+        'Single Line'
+        'Multi Line'
+        'RTF'
+        'Graphic'
+      )
+      OnSelectionChanged = RadioGroup1SelectionChanged
+      TabOrder = 4
+    end
+    object GroupBox5: TGroupBox
+      Left = 824
+      Height = 120
+      Top = 8
+      Width = 416
+      Caption = 'Print'
+      ClientHeight = 102
+      ClientWidth = 414
+      TabOrder = 5
+      object Button1: TButton
+        Left = 8
+        Height = 38
+        Top = 5
+        Width = 168
+        Action = Print
+        Caption = 'Label'
+        Font.Height = 20
+        ParentFont = False
+        TabOrder = 0
+      end
+      object Button3: TButton
+        Left = 224
+        Height = 38
+        Top = 5
+        Width = 168
+        Action = PrintBatch
+        Caption = 'Qeue'
+        Font.Height = 20
+        ParentFont = False
+        TabOrder = 1
+      end
+      object CheckBox3: TCheckBox
+        Left = 8
+        Height = 21
+        Top = 49
+        Width = 88
+        Caption = 'Print qeued'
+        Checked = True
+        State = cbChecked
+        TabOrder = 2
+      end
+      object CheckBox4: TCheckBox
+        Left = 232
+        Height = 21
+        Top = 49
+        Width = 72
+        Caption = 'Cutmark'
+        Checked = True
+        State = cbChecked
+        TabOrder = 3
+      end
+      object CheckBox2: TCheckBox
+        Left = 8
+        Height = 21
+        Top = 74
+        Width = 84
+        Caption = 'Print to file'
+        Checked = True
+        State = cbChecked
+        TabOrder = 4
+      end
+      object LabeledEdit6: TLabeledEdit
+        Left = 316
+        Height = 29
+        Top = 71
+        Width = 40
+        EditLabel.Height = 17
+        EditLabel.Width = 55
+        EditLabel.Caption = 'Gap (pad)'
+        LabelPosition = lpLeft
+        TabOrder = 5
+        Text = 'LabeledEdit6'
+      end
+      object UpDown3: TUpDown
+        Left = 356
+        Height = 29
+        Top = 71
+        Width = 32
+        Associate = LabeledEdit6
+        Increment = 10
+        Max = 180
+        Min = 0
+        Position = 30
+        TabOrder = 6
+      end
+    end
+  end
+  object Panel2: TPanel
+    AnchorSideTop.Control = Panel1
+    AnchorSideTop.Side = asrBottom
+    Left = 0
+    Height = 50
+    Top = 137
+    Width = 2036
+    Align = alTop
+    AutoSize = True
+    BorderSpacing.Top = 5
+    BevelOuter = bvNone
+    BevelWidth = 2
+    Caption = 'Panel2'
+    Constraints.MinHeight = 50
+    TabOrder = 1
+  end
+  object ScrollBox2: TScrollBox
+    AnchorSideTop.Control = Panel2
+    AnchorSideTop.Side = asrBottom
+    Left = 0
+    Height = 162
+    Top = 192
+    Width = 2036
+    HorzScrollBar.Page = 1720
+    VertScrollBar.Page = 160
+    Align = alTop
+    AutoSize = True
+    BorderSpacing.Top = 5
+    ClientHeight = 160
+    ClientWidth = 2034
+    Color = clDefault
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 2
+    object Image1: TImage
+      Left = 0
+      Height = 90
+      Top = 50
+      Width = 1720
+      BorderSpacing.Top = 50
+      BorderSpacing.Bottom = 20
+    end
+    object StaticText1: TStaticText
+      Left = 8
+      Height = 25
+      Top = 10
+      Width = 103
+      AutoSize = True
+      Caption = 'Print-Preview'
+      Font.Height = 16
+      ParentFont = False
+      TabOrder = 0
+    end
+    object Button2: TButton
+      Left = 232
+      Height = 25
+      Top = 10
+      Width = 115
+      Caption = 'Refresh'
+      OnClick = Button2Click
+      TabOrder = 1
+    end
+  end
+  object StatusBar1: TStatusBar
+    AnchorSideTop.Control = ScrollBox2
+    AnchorSideTop.Side = asrBottom
+    Left = 0
+    Height = 51
+    Top = 359
+    Width = 2036
+    Anchors = [akTop, akLeft, akRight]
+    AutoSize = False
+    BorderSpacing.Top = 5
+    Panels = <    
+      item
+        Alignment = taRightJustify
+        Text = 'Tape:'
+        Width = 50
+      end    
+      item
+        Width = 50
+      end    
+      item
+        Alignment = taRightJustify
+        Text = 'Length:'
+        Width = 60
+      end    
+      item
+        Width = 50
+      end    
+      item
+        Text = '   |    '
+        Width = 50
+      end    
+      item
+        Text = 'Qeued Labels:'
+        Width = 120
+      end    
+      item
+        Alignment = taRightJustify
+        Text = '3,5 mm: '
+        Width = 63
+      end    
+      item
+        Width = 60
+      end    
+      item
+        Alignment = taRightJustify
+        Text = '6 mm: '
+        Width = 60
+      end    
+      item
+        Width = 60
+      end    
+      item
+        Alignment = taRightJustify
+        Text = '9 mm: '
+        Width = 60
+      end    
+      item
+        Width = 60
+      end    
+      item
+        Alignment = taRightJustify
+        Text = '12 mm: '
+        Width = 60
+      end    
+      item
+        Width = 60
+      end    
+      item
+        Alignment = taRightJustify
+        Text = '18 mm: '
+        Width = 60
+      end    
+      item
+        Width = 60
+      end    
+      item
+        Alignment = taRightJustify
+        Text = '24 mm: '
+        Width = 60
+      end    
+      item
+        Width = 60
+      end    
+      item
+        Text = '   |    '
+        Width = 50
+      end    
+      item
+        Alignment = taRightJustify
+        Text = 'Time'
+        Width = 200
+      end>
+    ParentColor = False
+    SimpleText = 'Statuspanel1'
+    SimplePanel = False
+  end
+  object FontDialog1: TFontDialog
+    MinFontSize = 0
+    MaxFontSize = 0
+    Left = 1544
+    Top = 8
+  end
+  object Timer1: TTimer
+    Enabled = False
+    Interval = 5000
+    OnTimer = Timer1Timer
+    Left = 1496
+    Top = 8
+  end
+  object ActionList1: TActionList
+    Left = 1592
+    Top = 8
+    object UpdatePanelSize: TAction
+      Category = 'Update'
+      Caption = 'UpdatePanelSize'
+      OnExecute = UpdatePanelSizeExecute
+    end
+    object Print: TAction
+      Category = 'Print'
+      Caption = 'Etikett'
+      OnExecute = PrintExecute
+    end
+    object IniAfterStart: TAction
+      Category = 'Ini'
+      Caption = 'IniAfterStart'
+      OnExecute = IniAfterStartExecute
+    end
+    object UpdatePreview: TAction
+      Category = 'Update'
+      Caption = 'UpdatePreview'
+      OnExecute = UpdatePreviewExecute
+    end
+    object UpdateTapeType: TAction
+      Category = 'Update'
+      Caption = 'UpdateTapeType'
+      OnExecute = UpdateTapeTypeExecute
+    end
+    object UpdateAll: TAction
+      Category = 'Update'
+      Caption = 'UpdateAll'
+      OnExecute = UpdateAllExecute
+    end
+    object SelectFont: TAction
+      Caption = 'SelectFont'
+      OnExecute = SelectFontExecute
+    end
+    object WriteTextToHistory: TAction
+      Category = 'Ini'
+      Caption = 'Text &merken'
+      OnExecute = WriteTextToHistoryExecute
+    end
+    object ReadHistoryFromFile: TAction
+      Category = 'Ini'
+      Caption = 'ReadHistoryFromFile'
+      OnExecute = ReadHistoryFromFileExecute
+    end
+    object WriteHistoryToFile: TAction
+      Category = 'Ini'
+      Caption = 'WriteHistoryToFile'
+      OnExecute = WriteHistoryToFileExecute
+    end
+    object ReadInifile: TAction
+      Category = 'Ini'
+      Caption = 'Einstellungen &laden'
+      OnExecute = ReadInifileExecute
+    end
+    object WriteInifile: TAction
+      Category = 'Ini'
+      Caption = 'Einstellungen &speichern'
+      OnExecute = WriteInifileExecute
+    end
+    object ShowVersion: TAction
+      Category = 'Help'
+      Caption = 'ShowVersion'
+    end
+    object ShowSupported: TAction
+      Category = 'Help'
+      Caption = 'ShowSupported'
+    end
+    object ShowInfo: TAction
+      Category = 'Help'
+      Caption = 'ShowInfo'
+    end
+    object ShowHelpText: TAction
+      Category = 'Help'
+      Caption = 'ShowHelpText'
+      Visible = False
+    end
+    object UpdateTapeLength: TAction
+      Category = 'Update'
+      Caption = 'UpdateTapeLength'
+      OnExecute = UpdateTapeLengthExecute
+    end
+    object PrintBatch: TAction
+      Category = 'Print'
+      Caption = 'Warteschlange'
+      OnExecute = PrintBatchExecute
+    end
+    object CreateTestText: TAction
+      Category = 'Print'
+      Caption = 'Testtext einfügen'
+      OnExecute = CreateTestTextExecute
+    end
+    object CreateTestGraphic: TAction
+      Category = 'Print'
+      Caption = 'Testgrafik einfügen'
+      OnExecute = CreateTestGraphicExecute
+    end
+    object ClearBatchTape: TAction
+      Category = 'Print'
+      Caption = 'Löschen Warteschlange Tape'
+      OnExecute = ClearBatchTapeExecute
+    end
+    object ClearBatchAll: TAction
+      Category = 'Print'
+      Caption = 'Löschen Warteschlange alle'
+      OnExecute = ClearBatchAllExecute
+    end
+    object LoadPictureStandard: TAction
+      Category = 'Datei'
+      Caption = 'Grafik laden'
+      OnExecute = LoadPictureStandardExecute
+    end
+    object LoadPictureStretched: TAction
+      Category = 'Datei'
+      Caption = 'Grafik laden und einpassen'
+      OnExecute = LoadPictureStretchedExecute
+    end
+    object SaveGraphicTemplate: TAction
+      Category = 'Datei'
+      Caption = 'Erzeuge Grafik-Schablone'
+      OnExecute = SaveGraphicTemplateExecute
+    end
+    object LoadRTF: TAction
+      Category = 'Datei'
+      Caption = 'RTF Laden'
+      OnExecute = LoadRTFExecute
+    end
+    object SaveRTF: TAction
+      Category = 'Datei'
+      Caption = 'RTF Speichern'
+      OnExecute = SaveRTFExecute
+    end
+    object HistoryDeleteAll: TAction
+      Category = 'Historie'
+      Caption = 'Alle Löschen'
+      OnExecute = HistoryDeleteAllExecute
+    end
+    object HistoryDeleteItem: TAction
+      Category = 'Historie'
+      Caption = 'Aktuellen Eintrag löschen'
+      OnExecute = HistoryDeleteItemExecute
+    end
+    object HistoryDeleteSelected: TAction
+      Category = 'Historie'
+      Caption = 'Ausgewählte Einträge löschen'
+      OnExecute = HistoryDeleteSelectedExecute
+    end
+    object CreateTestGraphicCustomwidth: TAction
+      Category = 'Print'
+      Caption = 'Testgrafik einfügen (beliebige Breite)'
+      OnExecute = CreateTestGraphicCustomwidthExecute
+    end
+    object ReadPrinterConfiguration: TAction
+      Category = 'Configure'
+      Caption = 'Drucker konfigurieren'
+    end
+    object WritePrinterConfiguration: TAction
+      Category = 'Configure'
+      Caption = 'Konfiguration speichern'
+    end
+    object ShowPrinterConfigFile: TAction
+      Category = 'Configure'
+      Caption = 'ShowPrinterConfigFile'
+    end
+    object CalculatePixelWidth: TAction
+      Category = 'Configure'
+      Caption = 'CalculatePixelWidth'
+      OnExecute = CalculatePixelWidthExecute
+    end
+    object Autoconfigure: TAction
+      Category = 'Configure'
+      Caption = 'Auto Configure'
+    end
+    object AbortWithInfo: TAction
+      Category = 'Ini'
+      Caption = 'AbortWithInfo'
+    end
+    object ShowHistory: TAction
+      Category = 'Historie'
+      Caption = 'ShowHistory'
+      OnExecute = ShowHistoryExecute
+      ShortCut = 16456
+    end
+    object HideHistory: TAction
+      Category = 'Historie'
+      Caption = 'HideHistory'
+      OnExecute = HideHistoryExecute
+    end
+    object ToggleHistory: TAction
+      Category = 'Historie'
+      Caption = 'ToggleHistory'
+      OnExecute = ToggleHistoryExecute
+      ShortCut = 16456
+    end
+    object UpdateStatusPanel: TAction
+      Category = 'Update'
+      Caption = 'UpdateStatusPanel'
+      OnExecute = UpdateStatusPanelExecute
+    end
+  end
+  object MainMenu1: TMainMenu
+    Left = 1640
+    Top = 8
+    object MenuItem1: TMenuItem
+      Caption = '&File'
+      object MenuItem2: TMenuItem
+        Caption = 'E&xit'
+        OnClick = MenuItem2Click
+      end
+      object Separator9: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem23: TMenuItem
+        Action = LoadPictureStandard
+        Caption = '&Load Picture'
+      end
+      object MenuItem31: TMenuItem
+        Action = LoadPictureStretched
+        Caption = 'Load &Stretch Picture'
+      end
+      object MenuItem32: TMenuItem
+        Action = SaveGraphicTemplate
+        Caption = '&Create Picture Template'
+      end
+      object Separator10: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem33: TMenuItem
+        Action = LoadRTF
+        Caption = 'Load &RTF'
+      end
+      object MenuItem34: TMenuItem
+        Action = SaveRTF
+        Caption = 'Save R&TF'
+      end
+    end
+    object MenuItem15: TMenuItem
+      Caption = '&View'
+      object MenuItem8: TMenuItem
+        AutoCheck = True
+        Caption = '&Print Preview'
+        Checked = True
+        OnClick = MenuItem8Click
+      end
+      object MenuItem52: TMenuItem
+        Action = ToggleHistory
+        OnClick = MenuItem52Click
+      end
+      object MenuItem11: TMenuItem
+        AutoCheck = True
+        Caption = '&Debug Tools'
+        OnClick = MenuItem11Click
+      end
+      object Separator7: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem9: TMenuItem
+        AutoCheck = True
+        Caption = 'Auto &Tape'
+        Checked = True
+        OnClick = MenuItem9Click
+      end
+      object MenuItem10: TMenuItem
+        AutoCheck = True
+        Caption = 'Auto &Length'
+        Checked = True
+        OnClick = MenuItem10Click
+      end
+    end
+    object MenuItem35: TMenuItem
+      Caption = '&History'
+      object MenuItem40: TMenuItem
+        AutoCheck = True
+        Caption = '&When printing'
+        Checked = True
+      end
+      object MenuItem43: TMenuItem
+        Action = WriteTextToHistory
+        Caption = 'Add &manually'
+      end
+      object Separator11: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem44: TMenuItem
+        Action = HistoryDeleteItem
+        Caption = '&Delete'
+      end
+      object MenuItem45: TMenuItem
+        Action = HistoryDeleteSelected
+        Caption = 'Delete &selected'
+      end
+      object MenuItem46: TMenuItem
+        Action = HistoryDeleteAll
+        Caption = 'Delete &all'
+      end
+    end
+    object MenuItem4: TMenuItem
+      Caption = '&Print'
+      object MenuItem12: TMenuItem
+        Action = Print
+        Caption = '&Label'
+      end
+      object MenuItem30: TMenuItem
+        Action = PrintBatch
+        Caption = '&Qeue'
+      end
+      object Separator3: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem22: TMenuItem
+        Action = ClearBatchTape
+        Caption = '&Erase Qeue Tape'
+      end
+      object MenuItem21: TMenuItem
+        Action = ClearBatchAll
+        Caption = 'Erase Qeue &All'
+      end
+    end
+    object MenuItem16: TMenuItem
+      Caption = '&Options'
+      object MenuItem18: TMenuItem
+        Action = WriteInifile
+        Caption = '&Save Settings'
+      end
+      object MenuItem17: TMenuItem
+        Action = ReadInifile
+        Caption = '&Load Settings'
+      end
+      object Separator13: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem54: TMenuItem
+        Caption = '&Configure'
+        OnClick = MenuItem54Click
+      end
+    end
+    object MenuItem5: TMenuItem
+      Caption = '&Help'
+      object MenuItem3: TMenuItem
+        Caption = '&About'
+        OnClick = MenuItem3Click
+      end
+    end
+    object MenuItem6: TMenuItem
+      Caption = 'Debug'
+      Visible = False
+      object MenuItem13: TMenuItem
+        Action = CreateTestText
+        Caption = '&Show Testtext'
+      end
+      object MenuItem14: TMenuItem
+        Action = CreateTestGraphic
+        Caption = 'Show &Testgrafic'
+        Visible = False
+      end
+      object MenuItem53: TMenuItem
+        Action = CreateTestGraphicCustomwidth
+        Caption = '&Create Testgrafic (File)'
+      end
+      object MenuItem47: TMenuItem
+        Caption = '&Info "ptouch-print"'
+        OnClick = MenuItem47Click
+      end
+      object MenuItem28: TMenuItem
+        AutoCheck = True
+        Caption = '&Auto Update'
+        Checked = True
+        OnClick = MenuItem28Click
+      end
+      object MenuItem7: TMenuItem
+        Caption = '&Update'
+        object MenuItem24: TMenuItem
+          Action = UpdateAll
+        end
+        object MenuItem25: TMenuItem
+          Action = UpdatePanelSize
+        end
+        object MenuItem26: TMenuItem
+          Action = UpdateTapeType
+        end
+        object MenuItem27: TMenuItem
+          Action = UpdatePreview
+        end
+        object MenuItem29: TMenuItem
+          Action = UpdateTapeLength
+        end
+      end
+    end
+  end
+  object OpenPictureDialog1: TOpenPictureDialog
+    Left = 1424
+    Top = 8
+  end
+  object OpenDialog1: TOpenDialog
+    Left = 1384
+    Top = 128
+  end
+  object SaveDialog1: TSaveDialog
+    Left = 1448
+    Top = 128
+  end
+end

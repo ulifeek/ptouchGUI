@@ -1,0 +1,26 @@
+object Form3: TForm3
+  Left = 799
+  Height = 251
+  Top = 556
+  Width = 839
+  Anchors = []
+  BorderIcons = []
+  BorderStyle = bsSizeToolWin
+  Caption = 'History'
+  ClientHeight = 251
+  ClientWidth = 839
+  OnShow = FormShow
+  LCLVersion = '3.0.0.1'
+  object ListBox1: TListBox
+    Left = 0
+    Height = 251
+    Top = 0
+    Width = 839
+    Align = alClient
+    ItemHeight = 0
+    MultiSelect = True
+    OnDblClick = ListBox1DblClick
+    TabOrder = 0
+    TopIndex = -1
+  end
+end

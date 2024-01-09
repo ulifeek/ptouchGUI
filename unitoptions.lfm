@@ -1,0 +1,483 @@
+object Form2: TForm2
+  Left = 810
+  Height = 702
+  Top = 609
+  Width = 1338
+  Caption = 'P-touch GUI - Optionen'
+  ClientHeight = 702
+  ClientWidth = 1338
+  OnHide = WriteIniFileExecute
+  OnShow = ReadIniFileExecute
+  LCLVersion = '3.0.0.1'
+  object GroupBox7: TGroupBox
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = GroupBox6
+    AnchorSideRight.Side = asrBottom
+    Left = 8
+    Height = 376
+    Top = 176
+    Width = 612
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Left = 5
+    BorderSpacing.Top = 5
+    Caption = 'printer'
+    ClientHeight = 354
+    ClientWidth = 610
+    TabOrder = 0
+    object ComboBox2: TComboBox
+      Left = 176
+      Height = 33
+      Top = 8
+      Width = 152
+      ItemHeight = 0
+      ItemIndex = 2
+      Items.Strings = (
+        'PT-1230PC'
+        'PT-1950'
+        'PT-2420PC'
+        'PT-2430PC'
+        'PT-2450PC'
+        'PT-2700'
+        'PT-2730'
+        'PT-D450'
+        'PT-D460BT'
+        'PT-D600'
+        'PT-E500'
+        'PT-H500'
+        'PT-P700'
+        'PT-P710BT'
+        'PT-P750W'
+      )
+      TabOrder = 0
+      Text = 'PT-2420PC'
+    end
+    object LabeledEdit10: TLabeledEdit
+      Left = 176
+      Height = 33
+      Top = 48
+      Width = 62
+      EditLabel.Height = 21
+      EditLabel.Width = 154
+      EditLabel.Caption = 'max tape length [mm]'
+      LabelPosition = lpLeft
+      LabelSpacing = 10
+      TabOrder = 1
+      Text = 'LabeledEdit10'
+    end
+    object LabeledEdit11: TLabeledEdit
+      Left = 176
+      Height = 33
+      Top = 88
+      Width = 63
+      EditLabel.Height = 21
+      EditLabel.Width = 25
+      EditLabel.Caption = 'DPI'
+      LabelPosition = lpLeft
+      LabelSpacing = 10
+      TabOrder = 2
+      Text = 'LabeledEdit11'
+    end
+    object UpDown4: TUpDown
+      Left = 238
+      Height = 33
+      Top = 48
+      Width = 17
+      Associate = LabeledEdit10
+      Increment = 10
+      Max = 1000
+      Min = 0
+      Position = 270
+      TabOrder = 3
+    end
+    object UpDown5: TUpDown
+      Left = 239
+      Height = 33
+      Top = 88
+      Width = 17
+      Associate = LabeledEdit11
+      Increment = 180
+      Max = 360
+      Min = 180
+      Position = 1800
+      TabOrder = 4
+    end
+    object GroupBox8: TGroupBox
+      Left = 352
+      Height = 336
+      Top = 0
+      Width = 240
+      Caption = 'tapes'
+      ClientHeight = 314
+      ClientWidth = 238
+      TabOrder = 5
+      object CheckBox10: TCheckBox
+        AnchorSideLeft.Control = GroupBox8
+        AnchorSideTop.Control = GroupBox8
+        Left = 10
+        Height = 23
+        Top = 10
+        Width = 76
+        BorderSpacing.Left = 10
+        BorderSpacing.Top = 10
+        Caption = '3,5 mm'
+        TabOrder = 0
+      end
+      object CheckBox11: TCheckBox
+        AnchorSideLeft.Control = GroupBox8
+        AnchorSideTop.Control = UpDown10
+        Left = 10
+        Height = 23
+        Top = 56
+        Width = 64
+        BorderSpacing.Left = 10
+        BorderSpacing.Top = 50
+        Caption = '6 mm'
+        TabOrder = 1
+      end
+      object CheckBox12: TCheckBox
+        AnchorSideLeft.Control = GroupBox8
+        AnchorSideTop.Control = CheckBox11
+        Left = 10
+        Height = 23
+        Top = 106
+        Width = 64
+        BorderSpacing.Left = 10
+        BorderSpacing.Top = 50
+        Caption = '9 mm'
+        TabOrder = 2
+      end
+      object CheckBox13: TCheckBox
+        AnchorSideLeft.Control = GroupBox8
+        AnchorSideTop.Control = CheckBox12
+        Left = 10
+        Height = 23
+        Top = 156
+        Width = 72
+        BorderSpacing.Left = 10
+        BorderSpacing.Top = 50
+        Caption = '12 mm'
+        TabOrder = 3
+      end
+      object CheckBox14: TCheckBox
+        AnchorSideLeft.Control = GroupBox8
+        AnchorSideTop.Control = CheckBox13
+        Left = 10
+        Height = 23
+        Top = 206
+        Width = 72
+        BorderSpacing.Left = 10
+        BorderSpacing.Top = 50
+        Caption = '18 mm'
+        TabOrder = 4
+      end
+      object CheckBox15: TCheckBox
+        AnchorSideLeft.Control = GroupBox8
+        AnchorSideTop.Control = CheckBox14
+        Left = 10
+        Height = 23
+        Top = 256
+        Width = 72
+        BorderSpacing.Left = 10
+        BorderSpacing.Top = 50
+        Caption = '24 mm'
+        TabOrder = 5
+      end
+      object Edit10: TEdit
+        AnchorSideLeft.Control = CheckBox10
+        Left = 110
+        Height = 33
+        Top = 6
+        Width = 80
+        BorderSpacing.Left = 100
+        TabOrder = 6
+        Text = 'Edit10'
+      end
+      object Edit11: TEdit
+        AnchorSideLeft.Control = CheckBox11
+        AnchorSideTop.Control = CheckBox11
+        Left = 110
+        Height = 33
+        Top = 56
+        Width = 80
+        BorderSpacing.Left = 100
+        TabOrder = 7
+        Text = 'Edit11'
+      end
+      object Edit12: TEdit
+        AnchorSideLeft.Control = CheckBox12
+        AnchorSideTop.Control = CheckBox12
+        Left = 110
+        Height = 33
+        Top = 106
+        Width = 80
+        BorderSpacing.Left = 100
+        TabOrder = 8
+        Text = 'Edit12'
+      end
+      object Edit13: TEdit
+        AnchorSideLeft.Control = CheckBox13
+        AnchorSideTop.Control = CheckBox13
+        Left = 110
+        Height = 33
+        Top = 156
+        Width = 80
+        BorderSpacing.Left = 100
+        TabOrder = 9
+        Text = 'Edit13'
+      end
+      object Edit14: TEdit
+        AnchorSideLeft.Control = CheckBox14
+        AnchorSideTop.Control = CheckBox14
+        Left = 110
+        Height = 33
+        Top = 206
+        Width = 80
+        BorderSpacing.Left = 100
+        TabOrder = 10
+        Text = 'Edit14'
+      end
+      object Edit15: TEdit
+        AnchorSideLeft.Control = CheckBox15
+        AnchorSideTop.Control = CheckBox15
+        Left = 110
+        Height = 33
+        Top = 256
+        Width = 82
+        BorderSpacing.Left = 100
+        TabOrder = 11
+        Text = 'Edit15'
+      end
+      object UpDown10: TUpDown
+        Left = 190
+        Height = 33
+        Top = 6
+        Width = 17
+        Associate = Edit10
+        Increment = 4
+        Max = 256
+        Min = 16
+        Position = 16
+        TabOrder = 12
+      end
+      object UpDown11: TUpDown
+        Left = 190
+        Height = 33
+        Top = 56
+        Width = 16
+        Associate = Edit11
+        Increment = 4
+        Max = 256
+        Min = 16
+        Position = 0
+        TabOrder = 13
+      end
+      object UpDown12: TUpDown
+        Left = 190
+        Height = 33
+        Top = 106
+        Width = 16
+        Associate = Edit12
+        Increment = 4
+        Max = 256
+        Min = 16
+        Position = 0
+        TabOrder = 14
+      end
+      object UpDown13: TUpDown
+        Left = 190
+        Height = 33
+        Top = 156
+        Width = 16
+        Associate = Edit13
+        Increment = 4
+        Max = 256
+        Min = 16
+        Position = 0
+        TabOrder = 15
+      end
+      object UpDown14: TUpDown
+        Left = 190
+        Height = 33
+        Top = 206
+        Width = 17
+        Associate = Edit14
+        Increment = 4
+        Max = 256
+        Min = 16
+        Position = 0
+        TabOrder = 16
+      end
+      object UpDown15: TUpDown
+        Left = 192
+        Height = 33
+        Top = 256
+        Width = 17
+        Associate = Edit15
+        Increment = 4
+        Max = 256
+        Min = 16
+        Position = 0
+        TabOrder = 17
+      end
+    end
+  end
+  object GroupBox6: TGroupBox
+    Left = 5
+    Height = 171
+    Top = 5
+    Width = 615
+    BorderSpacing.Left = 5
+    BorderSpacing.Top = 5
+    Caption = 'path'
+    ClientHeight = 149
+    ClientWidth = 613
+    TabOrder = 1
+    object LabeledEdit7: TLabeledEdit
+      Left = 154
+      Height = 33
+      Top = 0
+      Width = 447
+      EditLabel.Height = 21
+      EditLabel.Width = 86
+      EditLabel.Caption = 'ptouch-print'
+      LabelPosition = lpLeft
+      LabelSpacing = 10
+      TabOrder = 0
+      Text = 'LabeledEdit7'
+      OnDblClick = Select_FN_PTouch_PrintExecute
+    end
+    object LabeledEdit8: TLabeledEdit
+      Left = 154
+      Height = 33
+      Hint = 'Wählen: Double-Click'
+      Top = 48
+      Width = 447
+      EditLabel.Height = 42
+      EditLabel.Width = 98
+      EditLabel.Caption = 'Image-Magick'#10'convert'
+      EditLabel.WordWrap = True
+      LabelPosition = lpLeft
+      LabelSpacing = 10
+      TabOrder = 1
+      Text = 'LabeledEdit8'
+      OnDblClick = Select_FN_ImagemagickExecute
+    end
+    object LabeledEdit9: TLabeledEdit
+      Left = 154
+      Height = 33
+      Hint = 'Wählen: Double-Click'
+      Top = 96
+      Width = 447
+      EditLabel.Height = 21
+      EditLabel.Width = 124
+      EditLabel.Caption = 'Arbeitsverzeichnis'
+      Enabled = False
+      LabelPosition = lpLeft
+      LabelSpacing = 10
+      TabOrder = 2
+      Text = 'LabeledEdit9'
+      OnDblClick = SelectWorkingDirectoryExecute
+    end
+  end
+  object PageControl1: TPageControl
+    AnchorSideLeft.Control = GroupBox7
+    AnchorSideLeft.Side = asrBottom
+    Left = 620
+    Height = 639
+    Top = 8
+    Width = 718
+    ActivePage = TabSheet1
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    TabIndex = 0
+    TabOrder = 2
+    OnChange = PageControl1Change
+    object TabSheet1: TTabSheet
+      Caption = 'Inifile'
+      ClientHeight = 606
+      ClientWidth = 708
+      object ListBox3: TListBox
+        Left = 5
+        Height = 601
+        Top = 5
+        Width = 703
+        Align = alClient
+        Anchors = []
+        BorderSpacing.Left = 5
+        BorderSpacing.Top = 5
+        ItemHeight = 0
+        PopupMenu = PopupMenu1
+        TabOrder = 0
+        TopIndex = -1
+      end
+    end
+    object TabSheet3: TTabSheet
+      Caption = 'Info ptouch-print'
+    end
+  end
+  object Button3: TButton
+    Left = 88
+    Height = 49
+    Top = 576
+    Width = 152
+    Caption = '&Abort'
+    OnClick = Button3Click
+    TabOrder = 3
+  end
+  object Button1: TButton
+    Left = 352
+    Height = 49
+    Top = 576
+    Width = 152
+    Caption = '&Save'
+    OnClick = Button1Click
+    TabOrder = 4
+  end
+  object ActionList1: TActionList
+    Left = 684
+    Top = 39
+    object ReadIniFile: TAction
+      Category = 'ini'
+      Caption = 'ReadIniFile'
+      OnExecute = ReadIniFileExecute
+    end
+    object WriteIniFile: TAction
+      Category = 'ini'
+      Caption = 'WriteIniFile'
+      OnExecute = WriteIniFileExecute
+    end
+    object ReadPrinterStandard: TAction
+      Caption = 'Standardvalues'
+    end
+    object ReadPrinterIni: TAction
+      Category = 'ini'
+      Caption = 'ReadPrinterIni'
+      OnExecute = ReadPrinterIniExecute
+    end
+    object WritePrinterIni: TAction
+      Category = 'ini'
+      Caption = 'WritePrinterIni'
+      OnExecute = WritePrinterIniExecute
+    end
+    object ShowPrinterIni: TAction
+      Caption = 'Show Printer Inifile'
+    end
+    object ShowApplicationIni: TAction
+      Caption = 'Show Application Inifile'
+      OnExecute = ShowApplicationIniExecute
+    end
+    object ShowPtouchprinterInfo: TAction
+      Caption = 'ShowPtouchprinterInfo'
+      OnExecute = ShowPtouchprinterInfoExecute
+    end
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 776
+    Top = 80
+    object MenuItem1: TMenuItem
+      Action = ShowApplicationIni
+    end
+    object MenuItem2: TMenuItem
+      Action = ShowPrinterIni
+    end
+  end
+end
